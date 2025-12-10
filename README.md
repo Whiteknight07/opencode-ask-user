@@ -2,6 +2,20 @@
 
 A custom tool for [opencode](https://github.com/sst/opencode) that allows the LLM agent to pause and ask you for free-form text input during execution.
 
+## Why Use This?
+
+�� **Get more done in a single request!** 
+
+Instead of the agent guessing what you want and making mistakes, it can ask for clarification mid-task. This means:
+
+- **No more back-and-forth** - Clarify once, get it right the first time
+- **Fewer LLM requests** - One comprehensive task instead of multiple correction cycles
+- **Better results** - Agent gets exactly the context it needs before proceeding
+
+Example: Instead of "refactor this code" → agent guesses wrong → you correct → agent tries again...
+
+Now it's: "refactor this code" → agent asks "class-based or functional?" → you answer → done correctly first time! ✅
+
 ## Features
 
 - 📝 **Free-form text input** - Not just approve/deny, actual text responses
