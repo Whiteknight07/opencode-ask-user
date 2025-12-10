@@ -12,22 +12,41 @@ A custom tool for [opencode](https://github.com/sst/opencode) that allows the LL
 
 ## Installation
 
-### 1. Copy the tool to your opencode config
+### 1. Install the plugin dependency
+
+The tool requires `@opencode-ai/plugin`. If you don't have it installed:
 
 ```bash
+# Navigate to your global opencode config directory
+cd ~/.config/opencode
+
+# Initialize package.json if it doesn't exist
+npm init -y
+
+# Install the plugin package
+npm install @opencode-ai/plugin
+```
+
+> **Note**: If you're working within the opencode monorepo, this package is already available.
+
+### 2. Copy the tool files
+
+```bash
+# Clone this repo (or download the files)
+git clone https://github.com/Whiteknight07/opencode-ask-user.git
+cd opencode-ask-user
+
 # Create the tool directory if it doesn't exist
 mkdir -p ~/.config/opencode/tool
 
 # Copy the tool
 cp ask_user.ts ~/.config/opencode/tool/
 
-# Copy the CLI helper (outside of tool/ directory)
+# Copy the CLI helper (IMPORTANT: outside of tool/ directory)
 cp ask-user-cli.ts ~/.config/opencode/
 ```
 
-### 2. Install dependencies (if not already available)
-
-The tool uses `@opencode-ai/plugin` which should already be available if you have opencode installed.
+> ⚠️ **Important**: The CLI helper must be placed **outside** the `tool/` directory, otherwise opencode will try to load it as a tool and cause display issues.
 
 ## Usage
 
@@ -108,6 +127,35 @@ Or if cancelled/timeout:
   "reason": "Timeout after 300 seconds waiting for user response"
 }
 ```
+
+## Troubleshooting
+
+### "Cannot find module '@opencode-ai/plugin'"
+
+Make sure you've installed the plugin:
+
+```bash
+cd ~/.config/opencode
+npm install @opencode-ai/plugin
+```
+
+### Garbled output in opencode TUI
+
+Make sure `ask-user-cli.ts` is placed **outside** the `tool/` directory:
+
+```bash
+# Correct location
+~/.config/opencode/ask-user-cli.ts  ✅
+
+# Wrong location (will cause issues)
+~/.config/opencode/tool/ask-user-cli.ts  ❌
+```
+
+### Questions not appearing in CLI
+
+1. Make sure the CLI helper is running in a separate terminal
+2. Check that `~/.opencode/ask_user/` directory exists
+3. Try restarting the CLI helper
 
 ## License
 
