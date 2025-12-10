@@ -4,7 +4,7 @@ A custom tool for [opencode](https://github.com/sst/opencode) that allows the LL
 
 ## Why Use This?
 
-�� **Get more done in a single request!** 
+**Get more done in a single request!** 
 
 Instead of the agent guessing what you want and making mistakes, it can ask for clarification mid-task. This means:
 
